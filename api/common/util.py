@@ -252,4 +252,3 @@ def GetUserDataFrame(org_id):
     df = df.drop_duplicates()
 
     return df
-  

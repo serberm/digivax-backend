@@ -1,0 +1,21 @@
+{# This template receives the following context:
+  confirmation_link - the link that should be fetched (GET) to confirm
+  confirmation_token - this token is part of confirmation link - but can be used to
+    construct arbitrary URLs for redirecting.
+  password - temporally password
+  user - the entire user model object
+  security - the Flask-Security configuration
+#}
+<Subject>DigiVax Enterprise registration complete</subject>
+<h1>Digivax Enterprise</h1>
+<p>
+<p>Welcome, please present the below QR code when providing your self-attested proof of COVID-19 vaccination or being tested by {{org_name}}.</p>
+<p><img src="cid:QRCode"></p>
+<p>Please bring a valid ID, ID badge and the above QR code.<br /><br /></p>
+<p>Thank you,</p>
+<p><br />{{org_name}}</p>
+{% if confirm_account %}
+<p>Your one-time password is {{ password }}.</p>
+<p>{{ _fsdomain('You can confirm your email through the link below:') }}</p>
+<p><a href="{{ confirmation_link }}">{{ _fsdomain('Confirm my account') }}</a></p>
+{% endif %}
